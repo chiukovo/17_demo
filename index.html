@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>分期Demo</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="css/fontawesome-all.css">
+  <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/menu.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="//fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <script async src='/js/autotrack.js'></script>
+  <meta name="robots" content="noindex">
+  <body>
+    <link rel="stylesheet" href="/assests/css/font-awesome.min.css">
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      }
+
+
+      #w3lDemoBar.w3l-demo-bar {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        padding: 40px 5px;
+        padding-top: 70px;
+        margin-bottom: 70px;
+        background: #0D1326;
+        border-top-left-radius: 9px;
+        border-bottom-left-radius: 9px;
+      }
+
+      #w3lDemoBar.w3l-demo-bar a {
+        display: block;
+        color: #e6ebff;
+        text-decoration: none;
+        line-height: 24px;
+        opacity: .6;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      #w3lDemoBar.w3l-demo-bar span.w3l-icon {
+        display: block;
+      }
+
+      #w3lDemoBar.w3l-demo-bar a:hover {
+        opacity: 1;
+      }
+
+      #w3lDemoBar.w3l-demo-bar .w3l-icon svg {
+        color: #e6ebff;
+      }
+
+      #w3lDemoBar.w3l-demo-bar .responsive-icons {
+        margin-top: 30px;
+        border-top: 1px solid #41414d;
+        padding-top: 40px;
+      }
+
+      #w3lDemoBar.w3l-demo-bar .demo-btns {
+        border-top: 1px solid #41414d;
+        padding-top: 30px;
+      }
+
+      #w3lDemoBar.w3l-demo-bar .responsive-icons a span.fa {
+        font-size: 26px;
+      }
+
+      #w3lDemoBar.w3l-demo-bar .no-margin-bottom {
+        margin-bottom: 0;
+      }
+
+      .toggle-right-sidebar span {
+        background: #0D1326;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: #e6ebff;
+        border-radius: 50px;
+        font-size: 26px;
+        cursor: pointer;
+        opacity: .5;
+      }
+
+      .pull-right {
+        float: right;
+        position: fixed;
+        right: 0px;
+        top: 70px;
+        width: 90px;
+        z-index: 99999;
+        text-align: center;
+      }
+
+      /* ============================================================
+RIGHT SIDEBAR SECTION
+============================================================ */
+
+      #right-sidebar {
+        width: 90px;
+        position: fixed;
+        height: 100%;
+        z-index: 1000;
+        right: 0px;
+        top: 0;
+        margin-top: 60px;
+        -webkit-transition: all .5s ease-in-out;
+        -moz-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+        overflow-y: auto;
+      }
+
+
+      /* ============================================================
+RIGHT SIDEBAR TOGGLE SECTION
+============================================================ */
+
+      .hide-right-bar-notifications {
+        margin-right: -300px !important;
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out;
+      }
+
+
+
+      @media (max-width: 992px) {
+        #w3lDemoBar.w3l-demo-bar a.desktop-mode {
+          display: none;
+
+        }
+      }
+
+      @media (max-width: 767px) {
+        #w3lDemoBar.w3l-demo-bar a.tablet-mode {
+          display: none;
+
+        }
+      }
+
+      @media (max-width: 568px) {
+        #w3lDemoBar.w3l-demo-bar a.mobile-mode {
+          display: none;
+        }
+
+        #w3lDemoBar.w3l-demo-bar .responsive-icons {
+          margin-top: 0px;
+          border-top: none;
+          padding-top: 0px;
+        }
+
+        #right-sidebar,
+        .pull-right {
+          width: 90px;
+        }
+
+        #w3lDemoBar.w3l-demo-bar .no-margin-bottom-mobile {
+          margin-bottom: 0;
+        }
+      }
+    </style>
+
+    <!-- header-bottom-->
+    <div class="header-bot my-md-4 my-3" id="site-header">
+      <div class="container">
+        <div class="row header-bot_inner_wthreeinfo_header_mid align-items-center">
+          <!-- logo -->
+          <div class="col-lg-3 col-md-4 logo_agile">
+            <h1>
+              <a href="/"><span>S</span>taging <span>D</span>emo</a>
+            </h1>
+          </div>
+          <!-- //logo -->
+          <!-- header-bot -->
+          <div class="col-lg-9 col-md-8 header">
+            <div class="row">
+              <!-- search -->
+              <div class="col-lg-9 col-sm-8 agileits_search">
+                <form class="form-inline" action="#" method="post" style="max-width:600px;">
+                  <input class="form-control" type="search" placeholder="請輸入產品"
+                    aria-label="Search" required>
+                  <button class="btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+              </div>
+              <!-- //search -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- shop locator (popup) -->
+    <!-- //header-bottom -->
+    <!-- navigation -->
+    <div class="navbar-inner">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="agileits-navi_search">
+            <form action="#" method="post">
+              <select id="agileinfo-nav_search" name="agileinfo_search" required="">
+                <option value="">全部</option>
+                <option value="相機館">相機館</option>
+                <option value="電玩館">電玩館</option>
+                <option value="筆電館">筆電館</option>
+                <option value="電腦館">電腦館</option>
+              </select>
+            </form>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav text-center ml-auto">
+              <li class="nav-item active mr-lg-2 mb-lg-0 mb-2">
+                <a class="nav-link" href="/">首頁
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  相機館
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/">Canon</a>
+                  <a class="dropdown-item" href="/">Nikon</a>
+                  <a class="dropdown-item" href="/">SONY</a>
+                  <a class="dropdown-item" href="/">GoPro</a>
+                  <a class="dropdown-item" href="/">DJI</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  電玩館
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/">Canon</a>
+                  <a class="dropdown-item" href="/">Nikon</a>
+                  <a class="dropdown-item" href="/">SONY</a>
+                  <a class="dropdown-item" href="/">GoPro</a>
+                  <a class="dropdown-item" href="/">DJI</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  筆電館
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/">Canon</a>
+                  <a class="dropdown-item" href="/">Nikon</a>
+                  <a class="dropdown-item" href="/">SONY</a>
+                  <a class="dropdown-item" href="/">GoPro</a>
+                  <a class="dropdown-item" href="/">DJI</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  電腦館
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/">Canon</a>
+                  <a class="dropdown-item" href="/">Nikon</a>
+                  <a class="dropdown-item" href="/">SONY</a>
+                  <a class="dropdown-item" href="/">GoPro</a>
+                  <a class="dropdown-item" href="/">DJI</a>
+                </div>
+              </li>
+              <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+                <a class="nav-link" href="/">關於我們</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">聯絡我們</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- //navigation -->
+
+    <!-- banner -->
+    <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+      <!-- Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item item1 active">
+          <div class="banner-style d-flex align-items-center">
+            <div class="container">
+              <div class="w3l-space-banner">
+                <div class="carousel-caption-banner" style="max-width:500px">
+                  <p>月付
+                    <span class="text-danger">1440</span>起
+                  </p>
+                  <h3 class="mt-2">27吋IPS</h3>
+                  <a class="btn btn-style mt-4" href="/">點我看詳情</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item item2">
+          <div class="banner-style d-flex align-items-center">
+            <div class="container">
+              <div class="w3l-space-banner">
+                <div class="carousel-caption-banner" style="max-width:500px">
+                  <p>月付
+                    <span class="text-danger">940</span>起
+                  </p>
+                  <h3 class="mt-2">紅米note 10</h3>
+                  <a class="btn btn-style mt-4" href="/">點我看詳情</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item item3">
+          <div class="banner-style d-flex align-items-center">
+            <div class="container">
+              <div class="w3l-space-banner">
+                <div class="carousel-caption-banner" style="max-width:500px">
+                  <p>月付
+                    <span class="text-danger">1040</span>起
+                  </p>
+                  <h3 class="mt-2">Apple Watch</h3>
+                  <a class="btn btn-style mt-4" href="/">點我看詳情</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <!-- //banner -->
+    <div style="margin: 8px auto; display: block; text-align:center;">
+
+      <!---728x90--->
+
+
+    </div>
+    <!-- top Products -->
+    <div class="ads-grid py-5">
+      <div class="container py-md-5 py-4">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+          最新免卡分期產品
+        </h3>
+        <!-- //tittle heading -->
+        <div class="row">
+          <!-- product right -->
+          <div class="col-lg-3 mt-lg-0 mt-4 p-lg-0 order-lg-first order-last">
+            <div class="side-bar p-sm-4 p-3">
+              <!-- reviews -->
+              <div class="customer-rev left-side py-2">
+                <h3 class="agileits-sear-head mb-3">顧客評價</h3>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span>5.0</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span>4.0</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half"></i>
+                      <span>3.5</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span>3.0</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half"></i>
+                      <span>2.5</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- //reviews -->
+              <!-- price -->
+              <div class="range py-2">
+                <h3 class="agileits-sear-head mb-3">價格</h3>
+                <div class="w3l-range">
+                  <ul>
+                    <li>
+                      <a href="#">> $1,000</a>
+                    </li>
+                    <li class="my-1">
+                      <a href="#">$1,000 - $5,000</a>
+                    </li>
+                    <li>
+                      <a href="#">$5,000 - $10,000</a>
+                    </li>
+                    <li class="my-1">
+                      <a href="#">$10,000 - $20,000</a>
+                    </li>
+                    <li>
+                      <a href="#">$20,000 $30,000</a>
+                    </li>
+                    <li class="mt-1">
+                      <a href="#">< $30,000</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- //price -->
+              <!-- discounts -->
+              <div class="left-side py-2">
+                <h3 class="agileits-sear-head mb-3">折扣</h3>
+                <ul>
+                  <li>
+                    <input type="checkbox" class="checked">
+                    <span class="span">5% up</span>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="checked">
+                    <span class="span">10% up</span>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="checked">
+                    <span class="span">20% up</span>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="checked">
+                    <span class="span">30% up</span>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="checked">
+                    <span class="span">50% up</span>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="checked">
+                    <span class="span">60% up</span>
+                  </li>
+                </ul>
+              </div>
+              <!-- //discounts -->
+              <!-- electronics -->
+              <div class="left-side py-2">
+                <h3 class="agileits-sear-head mb-3">分類</h3>
+                <ul>
+                  <li>
+                    <input type="checkbox" class="checked">
+                    <span class="span">相機館</span>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="checked">
+                    <span class="span">電玩館</span>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="checked">
+                    <span class="span">電腦館</span>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="checked">
+                    <span class="span">筆電館</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- product left -->
+          <div class="agileinfo-ads-display col-lg-9 order-lg-last order-first">
+            <div class="wrapper">
+              <!-- first section -->
+              <div class="product-sec1 px-lg-4">
+                <div class="row">
+                  <div class="col-md-4 product-men">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/m1.png" alt="" class="img-fluid">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="/" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="/">紅米 9 Prime</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$200/月</span>
+                          <del>$280/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 product-men mt-md-0 mt-5">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/m2.png" alt="" class="img-fluid">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="/" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                        <span class="product-new-top">New</span>
+
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="/">Refrigerator 冰箱</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$230/月</span>
+                          <del>$250/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 product-men mt-md-0 mt-5">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/m3.png" alt="" class="img-fluid">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="#" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                        <span class="product-new-top">New</span>
+
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="#">Apple iPhone 11</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$280/月</span>
+                          <del>$300/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //first section -->
+              <!-- second section -->
+              <div class="product-sec1 px-lg-4 mb-5">
+                <div class="row">
+                  <div class="col-md-4 product-men mt-5">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/m4.png" alt="" class="img-fluid">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="/" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                        <span class="product-new-top">New</span>
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="/">Mi 4A Horizon</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$320/月</span>
+                          <del>$340/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 product-men mt-5">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/m6.png" alt="" class="img-fluid">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="#" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="#">Smart AC with Wi-fi</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$349/月</span>
+                          <del>$399/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 product-men mt-5">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/m5.png" alt="" class="img-fluid">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="#" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="#">Microwave Oven</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$249/月</span>
+                          <del>$300/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //second section -->
+              <!-- third section -->
+              <div class="px-lg-4 my-5">
+                <div class="product-sec1 product-sec2">
+                  <div class="row p-5">
+                    <h3 class="col-md-4 effect-bg">Exciting Deals</h3>
+                    <p class="w3l-nut-middle">Up to 40% Off</p>
+                    <div class="col-md-8 bg-right-nut">
+                      <img src="images/image1.png" alt="" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //third section -->
+              <!-- fourth section -->
+              <div class="product-sec1 px-lg-4 mt-md-0 mt-5">
+                <div class="row">
+                  <div class="col-md-4 product-men">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/m7.png" alt="">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="#" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="#">Desert Air Cooler</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$230/月</span>
+                          <del>$280/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 product-men mt-md-0 mt-5">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/m8.png" alt="">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="/" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="/">Auto Washing Machine</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$180/月</span>
+                          <del>$200/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 product-men mt-md-0 mt-5">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/m9.png" alt="">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="#" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="#">Water Purifier</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$199/月</span>
+                          <del>$299/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //fourth section -->
+              <!-- 5th section -->
+              <div class="product-sec1 px-lg-4 mt-5">
+                <div class="row">
+                  <div class="col-md-4 product-men">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/mk8.png" alt="" class="img-fluid">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="#" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="#">Panasonic Tab 8</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$499/月</span>
+                          <del>$599/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 product-men mt-md-0 mt-5">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/mk7.png" alt="" class="img-fluid">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="#" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="#">Lenovo Yoga Tab</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$599/月</span>
+                          <del>$699/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 product-men mt-md-0 mt-5">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                      <div class="men-thumb-item text-center">
+                        <img src="images/mk9.png" alt="" class="img-fluid">
+                        <div class="men-cart-pro">
+                          <div class="inner-men-cart-pro">
+                            <a href="#" class="link-product-add-cart">點我看詳情</a>
+                          </div>
+                        </div>
+                        <span class="product-new-top">New</span>
+                      </div>
+                      <div class="item-info-product text-center mt-2">
+                        <h4 class="pt-1">
+                          <a href="#">Samsung Galaxy Tab</a>
+                        </h4>
+                        <div class="info-product-price">
+                          <span class="item_price">$699/月</span>
+                          <del>$899/月</del>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                          <button class="btn btn-style btn-style-secondary mt-3">點我看詳情</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 5th section -->
+            </div>
+          </div>
+          <!-- //product left -->
+        </div>
+      </div>
+    </div>
+    <!-- //top products -->
+
+    <!-- middle section -->
+    <div class="join-w3l1 py-sm-5 py-4">
+      <div class="container py-xl-4 py-lg-2">
+        <div class="row">
+          <div class="col-lg-6">
+            <a href="#">
+              <div class="join-agile text-left p-4">
+                <div class="row">
+                  <div class="col-sm-7 offer-name">
+                    <h6>最潮新世代來臨</h6>
+                    <h4 class="mb-3">Nintendo Switch</h4>
+                    <p>OLED 款式 (紅藍)</p>
+                  </div>
+                  <div class="col-sm-5 offerimg-w3l">
+                    <img src="images/switch-r.png" alt="" class="img-fluid" style="width: ;">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-6 mt-lg-0 mt-4">
+            <a href="#">
+              <div class="join-agile text-left p-4">
+                <div class="row ">
+                  <div class="col-sm-7 offer-name">
+                    <h6>最潮新世代來臨</h6>
+                    <h4 class="mb-3">Nintendo Switch</h4>
+                    <p>OLED 款式 (白白)</p>
+                  </div>
+                  <div class="col-sm-5 offerimg-w3l">
+                    <img src="images/switch.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- middle section -->
+    <div style="margin: 8px auto; display: block; text-align:center;">
+
+      <!---728x90--->
+
+    </div>
+    <!-- footer -->
+    <footer>
+      <div class="footer-top-first">
+        <div class="container py-5">
+          <!-- footer first section -->
+          <h2 class="footer-top-head-w3l font-weight-bold mb-3">關於分期 :</h2>
+          <p class="footer-main mb-4">
+1.關於Staging分期：Staging分期是免卡分期、無卡分期業界老字號品牌，粉絲人數破萬人。<br>
+2.公司的營運項目產品：數位產品，手機、平板、相機、電腦、家電。<br>
+3.公司的目標、理想 來協助客人輕鬆月付，實現先使用，後付款的理念。<br>
+4.公司名稱：智律企業社。<br>
+5.相關合作資融公司。<br>
+6.無卡分期刊登總價已包含資融公司利息。<br>
+特別記載事項商品總價、訂金、辦理分期金額(商品總價-已付訂金)、期數​、​期付款、分期總額，為最終價格。<br>
+7.公司之成員：多名客服、多名物流，提供客人最快速的服務。<br>
+8.營業時間：每週一到週六，上午10:00至22:00。每周日公休。<br>
+9.連絡方式：線上客服LINE ID：@17fen7(前面有＠)、聯絡電話：0926-828-957、社群平台：Staging分期。
+更多服務介紹，請參考：介紹無卡/免卡分期
+          </p>
+          <!-- //footer first section -->
+          <!-- footer second section -->
+          <div class="row w3l-grids-footer py-sm-4 py-3">
+            <div class="col-md-4 offer-footer">
+              <div class="d-flex align-items-center">
+                <div class="icon-fot">
+                  <i class="fas fa-dolly"></i>
+                </div>
+                <div class="text-form-footer ml-3">
+                  <h3>快速辦理</h3>
+                  <p>一分鐘即完成</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 offer-footer my-md-0 my-4">
+              <div class="d-flex align-items-center">
+                <div class="icon-fot">
+                  <i class="fas fa-shipping-fast"></i>
+                </div>
+                <div class="text-form-footer ml-3">
+                  <h3>快速送達</h3>
+                  <p>xx貨運</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 offer-footer">
+              <div class="d-flex align-items-center">
+                <div class="icon-fot">
+                  <i class="far fa-thumbs-up"></i>
+                </div>
+                <div class="text-form-footer ml-3">
+                  <h3>最高評價</h3>
+                  <p>百萬網友一致推薦</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //footer second section -->
+        </div>
+      </div>
+      <!-- footer third section -->
+      <div class="w3l-middlefooter-sec">
+        <div class="container py-5">
+          <div class="row footer-info w3-agileits-info">
+            <!-- footer categories -->
+            <div class="col-md-3 col-sm-6 footer-grids">
+              <h3 class="mb-3">分類</h3>
+              <ul>
+                <li class="mb-3">
+                  <a href="#">相機館 </a>
+                </li>
+                <li class="mb-3">
+                  <a href="#">電玩館</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#">筆電館</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#">電腦館</a>
+                </li>
+              </ul>
+            </div>
+            <!-- //footer categories -->
+            <!-- quick links -->
+            <div class="col-md-3 col-sm-6 footer-grids mt-sm-0 mt-4">
+              <h3 class="mb-3">快速連結</h3>
+              <ul>
+                <li class="mb-3">
+                  <a href="#">關於我們</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#">聯絡我們</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#">使用須知</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#">Q&A</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 footer-grids mt-md-0 mt-4">
+              <h3 class="mb-3">聯繫我們</h3>
+              <ul>
+                <li class="mb-3">
+                  <i class="fas fa-map-marker"></i> 台中市XX區XX路99號
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-mobile"></i><a href="#"> 04-12345678</a>
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-phone"></i><a href="#">0944111111</a>
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-envelope-open"></i>
+                  <a href="#"> mail demo@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 footer-grids w3l-agileits mt-md-0 mt-4">
+              <!-- social icons -->
+              <div class="footer-grids  w3l-socialmk mt-3">
+                <h3 class="mb-3">關注粉絲團</h3>
+                <div class="social">
+                  <ul>
+                    <li>
+                      <a class="icon fb" href="#facebook">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="icon tw" href="#twitter">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="icon gp" href="#google-plus">
+                        <i class="fab fa-google-plus-g"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- //social icons -->
+            </div>
+          </div>
+          <!-- //quick links -->
+        </div>
+      </div>
+      <!-- //footer third section -->
+
+    </footer>
+    <!-- //footer -->
+    <!-- copyright -->
+    <div class="copy-right py-3">
+      <div class="container">
+        <p class="text-center ">© 2021 All rights reserved
+          <a href="#"> xx分期</a>
+        </p>
+      </div>
+    </div>
+    <!-- //copyright -->
+
+    <!-- js-files -->
+    <!-- common jquery plugin -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- //common jquery plugin -->
+
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+      $(document).ready(function () {
+        /*
+          var defaults = {
+          containerID: 'toTop', // fading element id
+          containerHoverID: 'toTopHover', // fading element hover id
+          scrollSpeed: 1200,
+          easingType: 'linear' 
+          };
+        */
+
+        $().UItoTop({
+          easingType: 'easeOutQuart'
+        });
+
+      });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!-- js -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+          event.preventDefault();
+          $('html,body').animate({
+            scrollTop: $(this.hash).offset().top
+          }, 1000);
+        });
+      });
+    </script>
+    <!-- start-smoth-scrolling -->
+
+    <!-- nav smooth scroll -->
+    <script>
+      $(document).ready(function () {
+        $(".dropdown").hover(
+          function () {
+            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+            $(this).toggleClass('open');
+          },
+          function () {
+            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+            $(this).toggleClass('open');
+          }
+        );
+      });
+    </script>
+    <!-- //nav smooth scroll -->
+
+    <!-- popup modal (for location)-->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.popup-with-zoom-anim').magnificPopup({
+          type: 'inline',
+          fixedContentPos: false,
+          fixedBgPos: true,
+          overflowY: 'auto',
+          closeBtnInside: true,
+          preloader: false,
+          midClick: true,
+          removalDelay: 300,
+          mainClass: 'my-mfp-zoom-in'
+        });
+
+      });
+    </script>
+    <!-- //popup modal (for location)-->
+
+    <!-- scroll seller -->
+    <script src="js/scroll.js"></script>
+    <!-- //scroll seller -->
+
+    <!-- cart-js -->
+    <script src="js/minicart.js"></script>
+    <script>
+      paypals.minicarts
+        .render(); //use only unique class names other than paypals.minicarts.Also Replace same class name in css and minicart.min.js
+
+      paypals.minicarts.cart.on('checkout', function (evt) {
+        var items = this.items(),
+          len = items.length,
+          total = 0,
+          i;
+
+        // Count the number of each item in the cart
+        for (i = 0; i < len; i++) {
+          total += items[i].get('quantity');
+        }
+
+        if (total < 3) {
+          alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+          evt.preventDefault();
+        }
+      });
+    </script>
+    <!-- //cart-js -->
+    <script>
+      function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+          "position": "relative",
+          "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function () {
+          thhis.css("opacity", 1);
+          thhis.prev().removeAttr("style");
+          thhis.text("");
+          for (var i = 0; i < amntOfChars; i++) {
+            (function (i, char) {
+              setTimeout(function () {
+                newString += char;
+                thhis.text(newString);
+              }, i * typingSpeed);
+            })(i + 1, text[i]);
+          }
+        }, 1500);
+      }
+
+      $(document).ready(function () {
+        // Now to start autoTyping just call the autoType function with the 
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.   
+        autoType(".type-js", 200);
+      });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+      $(function () {
+        $('.navbar-toggler').click(function () {
+          $('body').toggleClass('noscroll');
+        })
+      });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+
+    <!--bootstrap-->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- //bootstrap-->
+    <!-- //Js scripts -->
+
+
+    <div id="v-w3layouts"></div>
+  </body>
+
+</html>
